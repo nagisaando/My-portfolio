@@ -1,5 +1,13 @@
 <template>
     <div :style="{'height': '100%'}" >
+        
+        <div class="greeting">
+            <div class="greeting-word" :class="greetingOpacity">
+                <h1>Hello, </h1>
+                <h1>I am a web developer.</h1>
+            </div>
+        </div>
+        
         <div class="outer-wrapper" :style="checkHeight()">
                 <ul class="outer-wrapper">
                     <li class="slide one" >
@@ -62,6 +70,10 @@ export default {
                 'fadeoutAnime' : false
                 }
             ],
+            greetingOpacity: {
+                'fadeinGreeting': true,
+                'fadeoutGreeting': false
+            },
             notScrolledYet: true
             
             
@@ -76,8 +88,8 @@ export default {
             
         },
         
-        handleScroll: function (event) {
-            event.preventDefault()
+        handleScroll: function () {
+            // event.preventDefault()
             this.notScrolledYet = false;
             let Item = document.querySelector('.outer-wrapper');
             let value = (window.innerWidth - (window.innerWidth * 0.1)) - window.scrollY;
@@ -86,15 +98,14 @@ export default {
   
         },
 
-        opacityChange: function (event) {
+        opacityChange: function () {
             
-            event.preventDefault()
+            // event.preventDefault()
             let sliders = document.querySelectorAll('.slider');
-            console.log(sliders)
             let vm = this;
-            let i = 0;
+            let i = 0
             sliders.forEach((slide) => {
-                console.log(vm.fadeControl)
+               
                 let slider = slide.getBoundingClientRect();
                 let sliderLeft = Math.floor(slider.left);
                 let sliderRight = Math.floor(slider.right);
@@ -104,33 +115,51 @@ export default {
                 if(sliderLeft >= centerPoint - sliderWidth && sliderRight <= centerPoint + sliderWidth) {
                     
                     vm.fadeControl[i].fadeinAnime = true;
-                    vm.fadeControl[i].fadeoutAnime = false;
-                    // setTimeout(() => {
-                    //     vm.fadeControl[i].fadeoutAnime = false;
-                    // }, 100)
-                   
+                    vm.fadeControl[i].fadeoutAnime = false;    
                 } else {
                     vm.fadeControl[i].fadeoutAnime = true;
-                    vm.fadeControl[i].fadeinAnime = false;
-                    // setTimeout(() => {
-                    //     vm.fadeControl[i].fadeinAnime = false;
-                    // }, 100)
-                    
+                    vm.fadeControl[i].fadeinAnime = false; 
                     
                 }
                 i++
             })
           
+        },
+
+        greetingsOpacityChange: function() {
+            let greeting = document.querySelector('.greeting-word');
+            let slider = document.querySelector('.slider');
+
+            let greetingRight = Math.floor(greeting.getBoundingClientRect().right);
+            let sliderLeft = Math.floor(slider.getBoundingClientRect().left)
+
+            console.log(greetingRight)
+            console.log(sliderLeft)
+
+            if(greetingRight > sliderLeft) {
+                this.greetingOpacity.fadeinGreeting = false;
+                this.greetingOpacity.fadeoutGreeting = true;
+                // greeting.classList.remove('fadeinGreeting')
+                // greeting.classList.add('fadeoutGreeting')
+            } else {
+                // greeting.classList.remove('fadeoutGreeting')
+                // greeting.classList.add('fadeinGreeting')
+                this.greetingOpacity.fadeoutGreeting = false;
+                this.greetingOpacity.fadeinGreeting = true;
+            }
+
         }
     },
 
     created: function () {
         window.addEventListener('scroll', this.handleScroll);
         window.addEventListener('scroll', this.opacityChange);
+        window.addEventListener('scroll', this.greetingsOpacityChange)
     },
     destroyed: function () {
         window.removeEventListener('scroll', this.handleScroll);
         window.removeEventListener('scroll', this.opacityChange);
+        window.removeEventListener('scroll', this.greetingsOpacityChange)
 
     }
 
@@ -139,7 +168,18 @@ export default {
 
 <style>
     
-    
+    .greeting {
+    position: fixed;
+    width: 55%;
+    transform: translate(10rem, 20rem);
+    display: inline-block;
+}
+
+
+h1 {
+    font-size: 3rem;
+}
+
 
     /* body {
         -webkit-font-smoothing: subpixel-antialiased;
@@ -147,14 +187,19 @@ export default {
     .outer-wrapper {
         display: flex;
         flex-direction: row;
-        width: 160vw;   
+        /* width: 160%;
+        height: 80%; */
+        width: 200vw;   
         position: absolute;
-        height: 100vh;
+        height: 60vh;
+        
     }
 
     .slide {
-        width: 40vw;
+        width: 50vw;
         height: 60vh;
+        /* width: 40%;
+        height: 100%; */
         /* to make element center */
         display: flex;
         align-items: center;  
@@ -236,6 +281,51 @@ export default {
     }
 
     
+    .fadeinGreeting {
+        animation-name: greetingIn; 
+        animation-duration: 500ms;
+        animation-timing-function: ease-in;
+        animation-fill-mode: forwards;
+        
+        -webkit-animation-name: greetingIn;
+        -webkit-animation-duration: 400ms;
+        -webkit-animation-timing-function: ease-in;
+        -webkit-animation-fill-mode: forwards;
+        
+        
+        
+    }
+    @keyframes greetingIn {
+        0% {opacity: 0;}
+        100% {opacity: 1;}
+    }
+
+    @-webkit-keyframes greetingIn {
+        0% {opacity: 0;}
+        100% {opacity: 1;}
+    }
+
+    .fadeoutGreeting {
+        animation-name: greetingOut; 
+        animation-duration: 400ms;
+        animation-timing-function: ease-in;
+        animation-fill-mode: forwards;
+   
+        -webkit-animation-name: greetingOut;
+        -webkit-animation-duration: 400ms;
+        -webkit-animation-timing-function: ease-in;
+        -webkit-animation-fill-mode: forwards;
+        
+    }
+    @keyframes greetingOut {
+        0% {opacity: 1;}
+        100% {opacity: 0;}
+    }
+
+    @-webkit-keyframes greetingOut {
+        0% {opacity: 1;}
+        100% {opacity: 0}
+    }
 </style>
 
 
