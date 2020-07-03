@@ -1,20 +1,23 @@
 <template>
     <div :style="{'height': '100%'}" >
         
-        <!-- <div class="greeting">
-            <div class="greeting-word" :class="greetingOpacity">
-                <h1>Hello, </h1>
-                <h1>I am a web developer.</h1>
+        <div class="guideUser"> 
+            <div class="scrollicon" :class="scrollIconOpacity">
+                <!-- <p class="guide">Scroll Down</p> -->
+                <i class="fas fa-angle-double-down fa-4x"></i>
             </div>
-        </div> -->
+        </div> 
         
         <!-- <div class="outer-wrapper"> -->
                 <ul class="outer-wrapper" :style="startLocation()">
                     <li class="slide one" >
                         <div class="portfolio-link">
                             <a href="#" class="link-section">
-                                  <img class="slider" :class="fadeControl[0]" src="../assets/lemon.png">  
-                                  <p class="description">VueJs/Bootstrap</p>
+                                  <img class="slider" :class="fadeControl[0]" src="../assets/bugTracker.gif">  
+                                  <div class="description">
+                                      <h1>Bug Tracker</h1>
+                                      <p>VueJs/tailwind/HTML</p>
+                                  </div>
                             </a>
                         </div>
                         
@@ -23,10 +26,11 @@
                     <li class="slide two">
                         <div class="portfolio-link">
                             <a href="#" class="link-section">
-                                <img class="slider" :class="fadeControl[1]" src="../assets/bloom.png" @mouseover="showText2 = !showText2" @mouseout="showText2 = !showText2">
-                                <transition name="slide-fade">
-                                    <p v-if="showText2" class="description">yahho2</p>
-                                </transition>
+                                <img class="slider" :class="fadeControl[1]" src="../assets/pomodoroTimer.gif" @mouseover="showText2 = !showText2" @mouseout="showText2 = !showText2">
+                                <div class="description">
+                                    <h1>Pomodoro Timer</h1>
+                                    <p>Javascript/Bootstrap/HTML</p>
+                                </div>
                             </a>
                         </div>
                     </li>
@@ -34,19 +38,22 @@
                     <li class="slide three">
                         <div class="portfolio-link">
                             <a href="#" class="link-section">
-                                <img class="slider" :class="fadeControl[2]" src="../assets/eyelush.png">
-                                <p class="description">yahho</p>
+                                <img class="slider" :class="fadeControl[2]" src="../assets/restaurant.gif">
+                                <div class="description">
+                                      <h1>Sushi Restaurant</h1>
+                                      <p>Javascript/CSS/HTML</p>
+                                  </div>
                             </a>
                         </div>
                     </li>
-                    <li class="slide four">
+                    <!-- <li class="slide four">
                         <div class="portfolio-link">
                             <a href="#" class="link-section">
                                 <img class="slider" :class="fadeControl[3]" src="../assets/grapefruit.png">
                                 <p class="description">yahho</p>
                             </a>
                         </div>
-                    </li>
+                    </li> -->
                 </ul>
         <!-- </div> -->
     </div>
@@ -77,11 +84,11 @@ export default {
                 'fadeoutAnime' : false
                 }
             ],
-            showText2: false
-            // greetingOpacity: {
-            //     'fadeinGreeting': true,
-            //     'fadeoutGreeting': false
-            // },
+            showText2: false,
+            scrollIconOpacity: {
+                'fadeinscrollIcon': true,
+                'fadeoutscrollIcon': false
+            },
             // notScrolledYet: true
             
             
@@ -136,60 +143,46 @@ export default {
           
         },
 
-        // greetingsOpacityChange: function() {
-        //     let greeting = document.querySelector('.greeting-word');
-        //     let slider = document.querySelector('.slider');
+        scrollIconsOpacityChange: function() {
+            let scrollIcon = document.querySelector('.scrollicon');
+            let slider = document.querySelector('.slider');
 
-        //     let greetingRight = Math.floor(greeting.getBoundingClientRect().right);
-        //     let sliderLeft = Math.floor(slider.getBoundingClientRect().left)
+            let scrollIconRight = Math.floor(scrollIcon.getBoundingClientRect().right);
+            let sliderLeft = Math.floor(slider.getBoundingClientRect().left)
 
-        //     if(greetingRight > sliderLeft) {
-        //         this.greetingOpacity.fadeinGreeting = false;
-        //         this.greetingOpacity.fadeoutGreeting = true;
-        //         // greeting.classList.remove('fadeinGreeting')
-        //         // greeting.classList.add('fadeoutGreeting')
-        //     } else {
-        //         // greeting.classList.remove('fadeoutGreeting')
-        //         // greeting.classList.add('fadeinGreeting')
-        //         this.greetingOpacity.fadeoutGreeting = false;
-        //         this.greetingOpacity.fadeinGreeting = true;
-        //     }
+            console.log(scrollIconRight, sliderLeft)
+            if(scrollIconRight > sliderLeft) {
+                this.scrollIconOpacity.fadeinscrollIcon = false;
+                this.scrollIconOpacity.fadeoutscrollIcon = true;
+                // scrollIcon.classList.remove('fadeinscrollIcon')
+                // scrollIcon.classList.add('fadeoutscrollIcon')
+            } else {
+                // scrollIcon.classList.remove('fadeoutscrollIcon')
+                // scrollIcon.classList.add('fadeinscrollIcon')
+                this.scrollIconOpacity.fadeoutscrollIcon = false;
+                this.scrollIconOpacity.fadeinscrollIcon = true;
+            }
 
-        // }
+        }
     },
 
     created: function () {
         window.addEventListener('scroll', this.handleScroll);
         window.addEventListener('scroll', this.opacityChange);
-        // window.addEventListener('scroll', this.greetingsOpacityChange)
+        window.addEventListener('scroll', this.scrollIconsOpacityChange)
     },
     destroyed: function () {
         window.removeEventListener('scroll', this.handleScroll);
         window.removeEventListener('scroll', this.opacityChange);
-        // window.removeEventListener('scroll', this.greetingsOpacityChange)
+        window.removeEventListener('scroll', this.scrollIconsOpacityChange)
 
     }
 
 }
 </script>
 
-<style>
-    
-    .greeting {
-    position: fixed;
-    width: 55%;
-    transform: translate(10rem, 20rem);
-    display: inline-block;
-    }
+<style scoped>
 
-    .greeting h1{
-        font-size: 3rem;
-    }
-
-
-    /* body {
-        -webkit-font-smoothing: subpixel-antialiased;
-    } */
     .outer-wrapper {
         display: flex;
         flex-direction: row;
@@ -197,11 +190,12 @@ export default {
         /* justify-content: center; */
         /* width: 160%;
         height: 80%; */
-        width: 160vw; 
+        width: 2000px; 
         height: 60vh;
         /* transform: translateY(1000px);   */
         top: 25%;
         position: fixed;
+        /* z-index: 100; */
         
 
         
@@ -209,8 +203,8 @@ export default {
 
     .slide {
         position: relative;
-        width: 60vw;
-        height: 50vh;
+        width: 100%;
+        height: 100%;
         /* width: 40%;
         height: 100%; */
         /* to make element center */
@@ -244,7 +238,7 @@ export default {
         height: 100%;
         width: 100%;
         /* display: cover; */
-        object-fit: cover;
+        object-fit: contain;
         transform: scale(0.9);
         opacity: 0.2;
         transition: 200ms;
@@ -267,9 +261,52 @@ export default {
         opacity: 1;
     }
 
+    .guideUser {
+        height: 100%;
+        width: 100%;
+        position: fixed;
+        pointer-events: none;
+        z-index: -1;
+    }
+
+    .scrollicon
+     {
+        display: inline-block;
+        position: relative;
+        top: 50%;
+        left: 50%;
+        
+    }
+
+    i {
+        animation-name: updown; 
+        animation-duration: 1s;
+        animation-timing-function: ease-in;
+        animation-iteration-count: infinite;
+        
+        -webkit-animation-name: updown;
+        -webkit-animation-duration: 1s;
+        -webkit-animation-timing-function: ease-in;
+        -webkit-animation-iteration-count: infinite;
+    }
+
+    @keyframes updown {
+        0% {transform: translateY(0);}
+        100% {transform: translateY(1vh);}
+    }
+
+    @-webkit-keyframes updown {
+        0% {transform: translateY(0);}
+        100% {transform: translateY(1vh);}
+    }
+
+
+
   
     
     .description {
+        padding-top: 2vw;
+        padding-right: 2vw;
         box-sizing: border-box;
         position: absolute;
         /* bottom: 0; */
@@ -279,10 +316,10 @@ export default {
         right: 20%;*/
         text-align: right;
         /* background: rgba(239, 246, 224, 0.4); */
-        background: rgba(10, 20, 24, 0.4); 
+        background: rgba(10, 20, 24, 0.7); 
         width: 80%;
         
-        height: 80%;
+        height: 60%;
         opacity: 0;
         pointer-events:none;
         transition-duration: 100ms;
@@ -341,13 +378,13 @@ export default {
     }
 
     
-    .fadeinGreeting {
-        animation-name: greetingIn; 
+    .fadeinscrollIcon {
+        animation-name: scrollIconIn; 
         animation-duration: 500ms;
         animation-timing-function: ease-in;
         animation-fill-mode: forwards;
         
-        -webkit-animation-name: greetingIn;
+        -webkit-animation-name: scrollIconIn;
         -webkit-animation-duration: 400ms;
         -webkit-animation-timing-function: ease-in;
         -webkit-animation-fill-mode: forwards;
@@ -355,34 +392,34 @@ export default {
         
         
     }
-    @keyframes greetingIn {
+    @keyframes scrollIconIn {
         0% {opacity: 0;}
         100% {opacity: 1;}
     }
 
-    @-webkit-keyframes greetingIn {
+    @-webkit-keyframes scrollIconIn {
         0% {opacity: 0;}
         100% {opacity: 1;}
     }
 
-    .fadeoutGreeting {
-        animation-name: greetingOut; 
+    .fadeoutscrollIcon {
+        animation-name: scrollIconOut; 
         animation-duration: 400ms;
         animation-timing-function: ease-in;
         animation-fill-mode: forwards;
    
-        -webkit-animation-name: greetingOut;
+        -webkit-animation-name: scrollIconOut;
         -webkit-animation-duration: 400ms;
         -webkit-animation-timing-function: ease-in;
         -webkit-animation-fill-mode: forwards;
         
     }
-    @keyframes greetingOut {
+    @keyframes scrollIconOut {
         0% {opacity: 1;}
         100% {opacity: 0;}
     }
 
-    @-webkit-keyframes greetingOut {
+    @-webkit-keyframes scrollIconOut {
         0% {opacity: 1;}
         100% {opacity: 0}
     }

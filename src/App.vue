@@ -1,6 +1,6 @@
 <template>
-  <div id="app" @mousemove="mousePointer" @click="clickEffect" >
-    <div class="cursor" :style="cursorLocation" :class="clickEvent"></div>
+  <div id="app" @mousemove="mousePointer" @click="clickEffect" :style="{height: '100%'}" >
+    <!-- <div class="cursor" :style="cursorLocation" :class="clickEvent"></div> -->
     
     <!-- <MyName /> -->
    
@@ -13,8 +13,8 @@
     <transition name="fade">
       <div v-show="!scrollnotStartYet" class="home_page">
         <!-- <Home /> -->
-        <MyName />
         <WorkProject />
+        <Navbar />
         
         
       </div>
@@ -25,15 +25,15 @@
 </template>
 
 <script>
-import MyName from './components/Stickybar';
-import WorkProject from './components/ScrollWork';
+import Navbar from './components/Navbar.vue';
+import WorkProject from './components/Project.vue';
 import About from './views/About.vue'
 // import Home from './views/Home.vue'
 
 export default {
   name: 'App',
   components: {
-     MyName,
+     Navbar,
      WorkProject,
     // Introduction,
     // CursorItem
@@ -70,7 +70,7 @@ export default {
     hideHomePage: function(){
         // let isScrolled = document.querySelector('.home_page').scrollTop;
         let isScrolled = window.pageYOffset
-        console.log(isScrolled)
+        // console.log(isScrolled)
         if(Math.floor(isScrolled > 5)){
           this.scrollnotStartYet = false;
         } else if(Math.floor(isScrolled === 0)) {
@@ -106,12 +106,23 @@ body {
 }
 
 body, html {
-  height: 210%;
+  height: 150%; 
   overflow-y: scroll;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   
 }
+@media only screen and (min-width: 768px) {
+  body, html {
+  height: 210%; 
+  overflow-y: scroll;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  
+}
+  /* For desktop: */
+}
+
 
 .cursor {
   width: 10px;

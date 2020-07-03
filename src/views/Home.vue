@@ -4,13 +4,13 @@
     <!-- <MyName /> -->
     
     <WorkProject />
-    <NavBar />
+    <!-- <NavBar /> -->
   </div>
 </template>
 
 <script>
 // import MyName from '../components/Stickybar';
-import NavBar from '../components/Stickybar'
+// import NavBar from '../components/Stickybar'
 import WorkProject from '../components/ScrollWork';
 
 // import Introduction from './components/BackGround';
@@ -20,7 +20,7 @@ export default {
   components: {
     // MyName,
     WorkProject,
-    NavBar
+    // NavBar
     // Introduction,
     // CursorItem
   },
