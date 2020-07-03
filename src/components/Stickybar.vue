@@ -2,17 +2,22 @@
     <div>
         <div class="sticky">
             <div class="name">
-                <a href="#" >
+                <router-link to="/">
                     NAGISA
                     <br>
                     ANDO
-                </a>
+                </router-link>   
             </div>
 
             <ul class="mainnav">
-                <li class="work"><a href="#">WORK</a></li>
-                <li class="about"><a href="#">ABOUT</a></li>
-                <li class="about"><a href="#">CONTACT</a></li>
+                <!-- <li class="about">
+                    <router-link to="/about">
+                        ABOUT
+                    </router-link>
+                </li> -->
+                <li class="contact">
+                    <a href="mailto:nagisa.ando0720@gmail.com">CONTACT</a>
+                </li>
             </ul>
             
 
@@ -29,7 +34,7 @@
 
 <script>
 export default {
-    name: "MyName",
+    name: "NavBar",
 }
 </script>
 
@@ -39,13 +44,16 @@ export default {
         top: 0;
         position: fixed;
         width: 100%;
+        /* pointer-events: auto; */
         height: 100%;
+        
 
     }
     
     ul {
         list-style-type: none;
         display: flex;
+        
     }
 
     li {
@@ -54,11 +62,11 @@ export default {
     a {
         text-decoration: none;
         transition: 0.3s;
-        color: white
+        color: #EFF6E0;
     }
 
     a:hover {
-        color: red;
+        color: #F03A47;
     }
 
     .name {
@@ -71,11 +79,19 @@ export default {
 
     .mainnav {
         float: right;
-        margin-right: 2rem;
+        /* right: 900px; */
+        margin-right: 20px;
         margin-top: 3rem;
         margin-bottom: 2rem;
+        /* transform: translateX(30rem); */
         
     }
+/* 
+    .contact {
+        margin-top: 3rem;
+        transform: translateX(90vw);
+        margin-right: 2rem;
+    } */
 
     .socialmedia {
         font-size: 0.8rem;
@@ -95,11 +111,12 @@ export default {
         margin-left: 0.5rem;
     }
     .follow {
-        color: white;
-        background-color: black;
+        background-color: #F03A47;
         text-align: center;
         width: 4rem;
         height: 15%;
+        /* z-index: 100; */
+       
     }
 /* 
     .work {

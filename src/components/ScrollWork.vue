@@ -1,47 +1,54 @@
 <template>
     <div :style="{'height': '100%'}" >
         
-        <div class="greeting">
+        <!-- <div class="greeting">
             <div class="greeting-word" :class="greetingOpacity">
                 <h1>Hello, </h1>
                 <h1>I am a web developer.</h1>
             </div>
-        </div>
+        </div> -->
         
-        <div class="outer-wrapper" :style="checkHeight()">
-                <ul class="outer-wrapper">
+        <!-- <div class="outer-wrapper"> -->
+                <ul class="outer-wrapper" :style="startLocation()">
                     <li class="slide one" >
                         <div class="portfolio-link">
-                            <a href="#">
+                            <a href="#" class="link-section">
                                   <img class="slider" :class="fadeControl[0]" src="../assets/lemon.png">  
+                                  <p class="description">VueJs/Bootstrap</p>
                             </a>
                         </div>
+                        
                     </li>
                 
                     <li class="slide two">
                         <div class="portfolio-link">
-                            <a href="#">
-                                <img class="slider" :class="fadeControl[1]" src="../assets/bloom.png" >
+                            <a href="#" class="link-section">
+                                <img class="slider" :class="fadeControl[1]" src="../assets/bloom.png" @mouseover="showText2 = !showText2" @mouseout="showText2 = !showText2">
+                                <transition name="slide-fade">
+                                    <p v-if="showText2" class="description">yahho2</p>
+                                </transition>
                             </a>
                         </div>
                     </li>
                 
                     <li class="slide three">
                         <div class="portfolio-link">
-                            <a href="#">
+                            <a href="#" class="link-section">
                                 <img class="slider" :class="fadeControl[2]" src="../assets/eyelush.png">
+                                <p class="description">yahho</p>
                             </a>
                         </div>
                     </li>
                     <li class="slide four">
                         <div class="portfolio-link">
-                            <a href="#">
+                            <a href="#" class="link-section">
                                 <img class="slider" :class="fadeControl[3]" src="../assets/grapefruit.png">
+                                <p class="description">yahho</p>
                             </a>
                         </div>
                     </li>
                 </ul>
-        </div>
+        <!-- </div> -->
     </div>
 </template>
 
@@ -70,31 +77,34 @@ export default {
                 'fadeoutAnime' : false
                 }
             ],
-            greetingOpacity: {
-                'fadeinGreeting': true,
-                'fadeoutGreeting': false
-            },
-            notScrolledYet: true
+            showText2: false
+            // greetingOpacity: {
+            //     'fadeinGreeting': true,
+            //     'fadeoutGreeting': false
+            // },
+            // notScrolledYet: true
             
             
         }
     },
     methods: {
-        checkHeight: function() {
+        startLocation: function() {
             // event.preventDefault()
-            const height = window.innerHeight * 0.25;
+            // const height = window.innerHeight * 0.25;
             const width = window.innerWidth - (window.innerWidth * 0.1);
-            return {'transform': `translate(${width}px, ${height}px)`}
+            // return {'transform': `translate(${width}px, ${height}px)`}
+            return {'transform': `translate(${width}px)`}
             
         },
         
         handleScroll: function () {
             // event.preventDefault()
             this.notScrolledYet = false;
-            let Item = document.querySelector('.outer-wrapper');
+            let item = document.querySelector('.outer-wrapper');
             let value = (window.innerWidth - (window.innerWidth * 0.1)) - window.scrollY;
-            let height = window.innerHeight * 0.25 + window.scrollY 
-            Item.style.transform = `translate(${value}px, ${height}px)`;
+            // let height = window.innerHeight * 0.25 + window.scrollY 
+            // item.style.transform = `translate(${value}px, ${height}px)`;
+            item.style.transform = `translate(${value}px)`;
   
         },
 
@@ -126,40 +136,37 @@ export default {
           
         },
 
-        greetingsOpacityChange: function() {
-            let greeting = document.querySelector('.greeting-word');
-            let slider = document.querySelector('.slider');
+        // greetingsOpacityChange: function() {
+        //     let greeting = document.querySelector('.greeting-word');
+        //     let slider = document.querySelector('.slider');
 
-            let greetingRight = Math.floor(greeting.getBoundingClientRect().right);
-            let sliderLeft = Math.floor(slider.getBoundingClientRect().left)
+        //     let greetingRight = Math.floor(greeting.getBoundingClientRect().right);
+        //     let sliderLeft = Math.floor(slider.getBoundingClientRect().left)
 
-            console.log(greetingRight)
-            console.log(sliderLeft)
+        //     if(greetingRight > sliderLeft) {
+        //         this.greetingOpacity.fadeinGreeting = false;
+        //         this.greetingOpacity.fadeoutGreeting = true;
+        //         // greeting.classList.remove('fadeinGreeting')
+        //         // greeting.classList.add('fadeoutGreeting')
+        //     } else {
+        //         // greeting.classList.remove('fadeoutGreeting')
+        //         // greeting.classList.add('fadeinGreeting')
+        //         this.greetingOpacity.fadeoutGreeting = false;
+        //         this.greetingOpacity.fadeinGreeting = true;
+        //     }
 
-            if(greetingRight > sliderLeft) {
-                this.greetingOpacity.fadeinGreeting = false;
-                this.greetingOpacity.fadeoutGreeting = true;
-                // greeting.classList.remove('fadeinGreeting')
-                // greeting.classList.add('fadeoutGreeting')
-            } else {
-                // greeting.classList.remove('fadeoutGreeting')
-                // greeting.classList.add('fadeinGreeting')
-                this.greetingOpacity.fadeoutGreeting = false;
-                this.greetingOpacity.fadeinGreeting = true;
-            }
-
-        }
+        // }
     },
 
     created: function () {
         window.addEventListener('scroll', this.handleScroll);
         window.addEventListener('scroll', this.opacityChange);
-        window.addEventListener('scroll', this.greetingsOpacityChange)
+        // window.addEventListener('scroll', this.greetingsOpacityChange)
     },
     destroyed: function () {
         window.removeEventListener('scroll', this.handleScroll);
         window.removeEventListener('scroll', this.opacityChange);
-        window.removeEventListener('scroll', this.greetingsOpacityChange)
+        // window.removeEventListener('scroll', this.greetingsOpacityChange)
 
     }
 
@@ -173,12 +180,11 @@ export default {
     width: 55%;
     transform: translate(10rem, 20rem);
     display: inline-block;
-}
+    }
 
-
-h1 {
-    font-size: 3rem;
-}
+    .greeting h1{
+        font-size: 3rem;
+    }
 
 
     /* body {
@@ -187,17 +193,24 @@ h1 {
     .outer-wrapper {
         display: flex;
         flex-direction: row;
+        align-items: center;
+        /* justify-content: center; */
         /* width: 160%;
         height: 80%; */
-        width: 200vw;   
-        position: absolute;
+        width: 160vw; 
         height: 60vh;
+        /* transform: translateY(1000px);   */
+        top: 25%;
+        position: fixed;
+        
+
         
     }
 
     .slide {
-        width: 50vw;
-        height: 60vh;
+        position: relative;
+        width: 60vw;
+        height: 50vh;
         /* width: 40%;
         height: 100%; */
         /* to make element center */
@@ -207,21 +220,38 @@ h1 {
     }
 
     .portfolio-link {
+        /* border: red solid; */
+        position: relative;
         width: 90%;
         height: 100%;
+        /* overflow: hidden; */
     }
 
-    img {
+    .link-section {
+        /* border: blue solid; */
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        /* text-align: center; */
+        display: flex;
+        align-items: center;  
+        justify-content: center; 
+    }
 
-        overflow:hidden;
+    .slider {
+        /* z-index: 200; */
+        /* overflow:hidden; */
         height: 100%;
         width: 100%;
         /* display: cover; */
-        object-fit: contain;
-        transform: scale(1);
+        object-fit: cover;
+        transform: scale(0.9);
         opacity: 0.2;
-        transition: 300ms;
+        transition: 200ms;
         opacity: 0.2;
+        
+        
+        /* overflow: hidden; */
         /* transition-delay: .3s; */
 
         /* -webkit-transform: translateZ(0); */
@@ -232,11 +262,41 @@ h1 {
         will-change: opacity; */
     }
 
-    img:hover {
-        transform: scale(1.1);
+    .slider:hover {
+        transform: scale(1);
         opacity: 1;
     }
+
+  
     
+    .description {
+        box-sizing: border-box;
+        position: absolute;
+        /* bottom: 0; */
+        color: #EFF6E0;
+        /* transform: translateY(30%);  */
+        /* left:  10%;
+        right: 20%;*/
+        text-align: right;
+        /* background: rgba(239, 246, 224, 0.4); */
+        background: rgba(10, 20, 24, 0.4); 
+        width: 80%;
+        
+        height: 80%;
+        opacity: 0;
+        pointer-events:none;
+        transition-duration: 100ms;
+        /* transform: scale(0.9); */
+        
+    }
+
+      .portfolio-link:hover .description {
+        opacity: 1;
+        transform: scale(1);
+        transition-duration: 300ms;
+        /* transition-delay: 300ms; */
+      
+    }
     .fadeinAnime {
         animation-name: fadein; 
         animation-duration: 300ms;
@@ -251,13 +311,13 @@ h1 {
         
     }
     @keyframes fadein {
-        0% {opacity: 0.2; transform: scale(1);}
-        100% {opacity: 1; transform: scale(1.1);}
+        0% {opacity: 0.2; transform: scale(0.9);}
+        100% {opacity: 1; transform: scale(1);}
     }
 
     @-webkit-keyframes fadein {
-        0% {opacity: 0.2; transform: scale(1);}
-        100% {opacity: 1; transform: scale(1.1);}
+        0% {opacity: 0.2; transform: scale(0.9);}
+        100% {opacity: 1; transform: scale(1);}
     }
 
     .fadeoutAnime {
@@ -271,13 +331,13 @@ h1 {
         
     }
     @keyframes fadeout {
-        0% {opacity: 1; transform: scale(1.1);}
-        100% {opacity: 0.2; transform: scale(1);}
+        0% {opacity: 1; transform: scale(1);}
+        100% {opacity: 0.2; transform: scale(0.9);}
     }
 
     @-webkit-keyframes fadeout {
-        0% {opacity: 1; transform: scale(1.1);}
-        100% {opacity: 0.2; transform: scale(1);}
+        0% {opacity: 1; transform: scale(1);}
+        100% {opacity: 0.2; transform: scale(0.9);}
     }
 
     
@@ -326,6 +386,9 @@ h1 {
         0% {opacity: 1;}
         100% {opacity: 0}
     }
+
+    
+
 </style>
 
 

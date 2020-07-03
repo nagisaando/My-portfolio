@@ -1,0 +1,129 @@
+<template>
+  <div id="app" @mousemove="mousePointer" @click="clickEffect" >
+   <div class="cursor" :style="cursorLocation" :class="clickEvent"></div>
+    <!-- <Introduction /> -->
+    <MyName />
+    <WorkProject />
+    
+    
+  </div>
+</template>
+
+<script>
+import MyName from './components/Stickybar';
+import WorkProject from './components/ScrollWork';
+// import Introduction from './components/BackGround';
+// import CursorItem from './components/CustomCursor';
+
+export default {
+  name: 'App',
+  components: {
+    MyName,
+    WorkProject,
+    // Introduction,
+    // CursorItem
+  },
+   data () {
+        return {
+            cursorLocation: {
+                top: '',
+                left: '',
+            },
+            clickEvent: {
+              'clickAnimation' : false
+            }
+            
+        }
+    },
+  methods: {
+  mousePointer: function(event) {
+      // console.log(event)
+      this.cursorLocation.top = `${event.clientY - 5}px`;
+      this.cursorLocation.left = `${event.clientX - 5}px`;
+            
+  },
+  clickEffect: function() {
+      let vm = this;
+      this.clickEvent.clickAnimation = true;
+      setTimeout(()=>{
+        vm.clickEvent.clickAnimation = false;
+      }, 500);
+  }
+
+    }
+
+
+}
+</script>
+
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  /* cursor: none; */
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.4;
+  background-color: coral;
+  overflow: hidden;
+}
+
+body, html {
+  height: 210%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  
+}
+
+.cursor {
+  width: 10px;
+  height: 10px;
+  border: 1px solid white;
+  /* background-color: white; */
+  border-radius: 50%;
+  position: fixed;
+  z-index: 1;
+  pointer-events:none;
+  transition-duration: 200ms;
+  transition-timing-function: ease-out;
+}
+
+.cursor::after {
+  content: "";
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  border: 8px solid white;
+  border-radius: 50%;
+  opacity: 1;
+  top: -9px;
+  left: -9px;
+  background-color: white;
+}
+
+.clickAnimation {
+  animation: cursorAnim .5s forwards;
+  border: 1px solid red;
+}
+
+@keyframes cursorAnim {
+  0% {
+    transform: scale(1);
+    
+  }
+  50% {
+    transform: scale(1.5);
+   
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  
+  }
+  
+}
+</style>
