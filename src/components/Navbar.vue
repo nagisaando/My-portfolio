@@ -1,129 +1,105 @@
 <template>
-    <div>
-        <div class="sticky">
-            <div class="name">
-                    NAGISA
-                    <br>
-                    ANDO
-            </div>
+	<div>
+		<div class="sticky">
+			<div class="name">
+				NAGISA
+				<br />
+				ANDO
+			</div>
 
-            <ul class="mainnav">
-                <!-- <li class="about">
-                    <router-link to="/about">
-                        ABOUT
-                    </router-link>
-                </li> -->
-                <li class="contact">
-                    <a href="mailto:nagisa.ando0720@gmail.com">CONTACT</a>
-                </li>
-            </ul>
-            
+			<ul class="mainnav">
+				<li class="contact">
+					<a href="mailto:nagisa.ando0720@gmail.com">CONTACT</a>
+				</li>
+			</ul>
 
-            <ul class="socialmedia">
-                <li class="follow">Follow</li>
-                <li class="linked-in"><a href="#">LinkedIn</a></li>
-                <li class="github"><a href="#">Github</a></li>
-            </ul>
-        </div>
-        
-        
-    </div>
+			<ul class="socialmedia">
+				<li class="follow">Follow</li>
+				<li class="linked-in">
+					<a
+						href="https://www.linkedin.com/in/nagisa-ando-42ab361aa/"
+						target="_blank"
+						>LinkedIn</a
+					>
+				</li>
+				<li class="github">
+					<a href="https://github.com/nagisaando/" target="_blank"
+						>Github</a
+					>
+				</li>
+			</ul>
+		</div>
+	</div>
 </template>
 
 <script>
-export default {
-    name: "NavBar",
-}
+	export default {
+		name: 'NavBar',
+	};
 </script>
 
 <style scoped>
-    .sticky {
-        /* position: absolute; */
-        top: 0;
-        position: fixed;
-        width: 100%;
-        pointer-events: none;
-        height: 100%;
-        
+	.sticky {
+		top: 0;
+		position: fixed;
+		width: 100%;
+		pointer-events: none;
+		height: 100%;
+	}
 
-    }
-    
-    ul {
-        list-style-type: none;
-        display: flex;
-        pointer-events: auto;
-        z-index: 100;
-        
-    }
+	ul {
+		list-style-type: none;
+		display: flex;
+		pointer-events: auto;
+		z-index: 100;
+	}
 
-    li {
-        margin-left: 1rem;
-    }
-    a {
-        text-decoration: none;
-        transition: 0.3s;
-        color: #EFF6E0;
-    }
+	li {
+		margin-left: 1rem;
+	}
+	a {
+		text-decoration: none;
+		transition: 0.3s;
+		color: #eff6e0;
+	}
 
-    a:hover {
-        color: #F03A47;
-    }
+	a:hover {
+		color: #f03a47;
+	}
 
-    .name {
-        position: absolute;
-        margin-left: 2rem;
-        margin-top: 2rem;
-        font-size: 1.5rem;
-        /* text-align: center; */
-    }
+	.name {
+		position: absolute;
+		margin-left: 2rem;
+		margin-top: 2rem;
+		font-size: 1.5rem;
+	}
 
-    .mainnav {
-        float: right;
-        /* right: 900px; */
-        margin-right: 20px;
-        margin-top: 3rem;
-        margin-bottom: 2rem;
-        /* transform: translateX(30rem); */
-        
-    }
-/* 
-    .contact {
-        margin-top: 3rem;
-        transform: translateX(90vw);
-        margin-right: 2rem;
-    } */
+	.mainnav {
+		float: right;
 
-    .socialmedia {
-        font-size: 0.8rem;
-        position: absolute;
-        /* 
-        transform: rotate(-90deg) translateY(15vh) translateX(-80vw);
-        transform-origin: left bottom; */
-       
-        transform: translateX(3rem) translateY(28rem) rotate(90deg);
-        transform-origin: left top;
+		margin-right: 20px;
+		margin-top: 3rem;
+		margin-bottom: 2rem;
+	}
 
-        -webkit-transform: translateX(3rem) translateY(28rem) rotate(90deg);
-        -webkit-transform-origin: left top;
-    }
+	.socialmedia {
+		font-size: 0.8rem;
+		position: absolute;
 
-    .socialmedia li {
-        margin-left: 0.5rem;
-    }
-    .follow {
-        background-color: #F03A47;
-        text-align: center;
-        width: 4rem;
-        height: 15%;
-        /* z-index: 100; */
-       
-    }
-/* 
-    .work {
-        margin-bottom: 80vh;
-    } */
+		transform: translateX(3rem) translateY(28rem) rotate(90deg);
+		transform-origin: left top;
 
+		-webkit-transform: translateX(3rem) translateY(28rem) rotate(90deg);
+		-webkit-transform-origin: left top;
+	}
 
-
-
+	.socialmedia li {
+		margin-left: 0.5rem;
+	}
+	.follow {
+		background-color: #f03a47;
+		text-align: center;
+		width: 4rem;
+		height: 15%;
+	}
 </style>
