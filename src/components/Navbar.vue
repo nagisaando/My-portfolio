@@ -13,7 +13,7 @@
 				</li>
 			</ul>
 
-			<ul class="socialmedia">
+			<ul class="socialmedia-md socialmedia">
 				<li class="follow">Follow</li>
 				<li class="linked-in">
 					<a
@@ -39,6 +39,31 @@
 </script>
 
 <style scoped>
+	@media only screen and (max-width: 600px) {
+		.socialmedia {
+		display: flex;
+		justify-content: flex-end;
+		top: 70px;
+		position: absolute;
+		right: 0;
+		margin-right: 20px
+	}
+	} 
+	@media only screen and (min-width: 600px) {
+		.socialmedia-md {
+			font-size: 0.8rem;
+			position: absolute;
+
+			transform: translateX(3rem) translateY(25rem) rotate(90deg);
+			transform-origin: left top;
+
+			-webkit-transform: translateX(3rem) translateY(25rem) rotate(90deg);
+			-webkit-transform-origin: left top;
+		}
+		.socialmedia-md li {
+			margin-left: 0.5rem;
+		}
+	}
 	.sticky {
 		top: 0;
 		position: fixed;
@@ -76,26 +101,12 @@
 
 	.mainnav {
 		float: right;
-
 		margin-right: 20px;
 		margin-top: 3rem;
 		margin-bottom: 2rem;
 	}
 
-	.socialmedia {
-		font-size: 0.8rem;
-		position: absolute;
-
-		transform: translateX(3rem) translateY(28rem) rotate(90deg);
-		transform-origin: left top;
-
-		-webkit-transform: translateX(3rem) translateY(28rem) rotate(90deg);
-		-webkit-transform-origin: left top;
-	}
-
-	.socialmedia li {
-		margin-left: 0.5rem;
-	}
+	
 	.follow {
 		background-color: #f03a47;
 		text-align: center;

@@ -231,7 +231,7 @@
 		background: rgba(10, 20, 24, 0.9);
 		width: 100%;
 		height: 20%;
-		bottom: 0;
+		bottom: 5%;
 		opacity: 0;
 		pointer-events: none;
 		transition-duration: 100ms;

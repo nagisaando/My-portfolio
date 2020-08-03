@@ -73,7 +73,7 @@
 
 	body,
 	html {
-		height: 150%;
+		height: 170%;
 		overflow-y: scroll;
 		overflow-x: hidden;
 		-webkit-font-smoothing: antialiased;
@@ -81,7 +81,7 @@
 	@media only screen and (min-width: 768px) {
 		body,
 		html {
-			height: 210%;
+			height: 230%;
 			overflow-y: scroll;
 			overflow-x: hidden;
 			-webkit-font-smoothing: antialiased;
