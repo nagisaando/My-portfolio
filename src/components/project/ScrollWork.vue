@@ -21,52 +21,11 @@
           </a>
         </div>
       </li>
-
-      <!-- <li class="slide two">
-        <div class="portfolio-link">
-          <a
-            href="https://pomodoro-timer.nagisando.com/"
-            target="_blank"
-            class="link-section"
-          >
-            <img
-              class="slider"
-              :class="fadeControl[1]"
-              src="@/assets/pomodoroTimer.gif"
-            />
-            <div class="description">
-              <h1>Pomodoro Timer</h1>
-              <p>Javascript/Bootstrap/HTML</p>
-            </div>
-          </a>
-        </div>
-      </li>
-
-      <li class="slide three">
-        <div class="portfolio-link">
-          <a
-            href="https://sushi-restaurant.nagisando.com/"
-            target="_blank"
-            class="link-section"
-          >
-            <img
-              class="slider"
-              :class="fadeControl[2]"
-              src="../../assets/restaurant.gif"
-            />
-            <div class="description">
-              <h1>Sushi Restaurant</h1>
-              <p>Javascript/CSS/HTML</p>
-            </div>
-          </a>
-        </div>
-      </li> -->
     </ul>
   </div>
 </template>
 
 <script>
-// import img1 from "../../assets/bugTracker.gif";
 export default {
   name: "WorkProject",
   data() {
@@ -106,13 +65,13 @@ export default {
           name: "Pomodoro Timer",
           techs: "Javascript/Bootstrap/HTML",
           link: "https://pomodoro-timer.nagisando.com/",
-          img: "bugTracker",
+          img: "pomodoroTimer",
         },
         {
-          name: "Anthony Jewellers",
-          techs: "css/tailwind/HTML",
-          link: "https://anthony-jeweller-9yfc1ds7c.vercel.app/",
-          img: "anthony",
+          name: "Sushi Restaurant",
+          techs: "css/Javascript/HTML",
+          link: "https://sushi-restaurant.nagisando.com/",
+          img: "restaurant",
         },
       ],
 
