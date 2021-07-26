@@ -17,9 +17,9 @@
       <p>
         MAIN SKILLS - JavaScript, HTML5, CSS
         <br />
-        FRAMEWORK - VueJs
+        FRAMEWORK - VueJs, Nuxt.js
         <br />
-        CSS FRAMEWORKS - Bootstrap, Bulma, tailwind
+        CSS FRAMEWORKS - Bootstrap, Bulma, tailwind, Sass
       </p>
     </div>
   </div>

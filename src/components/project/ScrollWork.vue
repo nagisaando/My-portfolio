@@ -47,29 +47,49 @@ export default {
           fadeinAnime: false,
           fadeoutAnime: false,
         },
+         {
+          fadeinAnime: false,
+          fadeoutAnime: false,
+        },
+        {
+          fadeinAnime: false,
+          fadeoutAnime: false,
+        },
       ],
       projects: [
+         {
+          name: "Culture Crawl",
+          techs: "Vue.js / Nuxt.js / tailwind / HTML",
+          link: "https://culturecrawl.ca/",
+          img: "eccs",
+        },
+         {
+          name: "Create ARTS FESTIVAL",
+          techs: "Vue.js / Nuxt.js / tailwind / HTML",
+          link: "https://createartsfestival.ca/",
+          img: "create-arts-festival",
+        },
         {
           name: "Remenu",
-          techs: "Vue.js/Nuxt.js/tailwind/Bulma/HTML",
+          techs: "Vue.js / Nuxt.js / tailwind / Bulma / HTML",
           link: "https://remenu.co/",
           img: "remenu",
         },
         {
           name: "Bug Tracker",
-          techs: "Vue.js/tailwind/HTML",
+          techs: "Vue.js / tailwind / HTML",
           link: "https://bug-tracker.nagisando.com/",
           img: "bugTracker",
         },
         {
           name: "Pomodoro Timer",
-          techs: "Javascript/Bootstrap/HTML",
+          techs: "Javascript / Bootstrap / HTML",
           link: "https://pomodoro-timer.nagisando.com/",
           img: "pomodoroTimer",
         },
         {
           name: "Sushi Restaurant",
-          techs: "css/Javascript/HTML",
+          techs: "css / Javascript / HTML",
           link: "https://sushi-restaurant.nagisando.com/",
           img: "restaurant",
         },

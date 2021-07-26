@@ -9,7 +9,7 @@
               :class="fadeControl[index]"
               :src="require(`@/assets/${project.img}.gif`)"
             />
-            <div class="description" :style="{ opacity: checkInfo[index] }">
+            <div class="description" :style="{opacity: checkInfo[index]}">
               <h2>{{ project.name }}</h2>
               <p>{{ project.techs }}</p>
             </div>
@@ -22,7 +22,7 @@
 
 <script>
 export default {
-  name: "WorkProject",
+  name: 'WorkProject',
   data() {
     return {
       fadeControl: [
@@ -42,108 +42,127 @@ export default {
           fadeinAnime: false,
           fadeoutAnime: false,
         },
+        {
+          fadeinAnime: false,
+          fadeoutAnime: false,
+        },
+        {
+          fadeinAnime: false,
+          fadeoutAnime: false,
+        },
       ],
       checkInfo: [
-        { checkInfo: false },
-        { checkInfo: false },
-        { checkInfo: false },
-        { checkInfo: false },
+        {checkInfo: false},
+        {checkInfo: false},
+        {checkInfo: false},
+        {checkInfo: false},
+        {checkInfo: false},
+        {checkInfo: false},
       ],
       projects: [
         {
-          name: "Remenu",
-          techs: "Vue.js/Nuxt.js/tailwind/Bulma/HTML",
-          link: "https://remenu.co/",
-          img: "remenu",
+          name: 'Culture Crawl',
+          techs: 'Vue.js / Nuxt.js / tailwind / HTML',
+          link: 'https://culturecrawl.ca/',
+          img: 'eccs',
         },
         {
-          name: "Bug Tracker",
-          techs: "Vue.js/tailwind/HTML",
-          link: "https://bug-tracker.nagisando.com/",
-          img: "bugTracker",
+          name: 'Create ARTS FESTIVAL',
+          techs: 'Vue.js / Nuxt.js / tailwind / HTML',
+          link: 'https://createartsfestival.ca/',
+          img: 'create-arts-festival',
         },
         {
-          name: "Pomodoro Timer",
-          techs: "Javascript/Bootstrap/HTML",
-          link: "https://pomodoro-timer.nagisando.com/",
-          img: "pomodoroTimer",
+          name: 'Remenu',
+          techs: 'Vue.js / Nuxt.js / tailwind / Bulma / HTML',
+          link: 'https://remenu.co/',
+          img: 'remenu',
         },
         {
-          name: "Sushi Restaurant",
-          techs: "css/Javascript/HTML",
-          link: "https://sushi-restaurant.nagisando.com/",
-          img: "restaurant",
+          name: 'Bug Tracker',
+          techs: 'Vue.js / tailwind / HTML',
+          link: 'https://bug-tracker.nagisando.com/',
+          img: 'bugTracker',
+        },
+        {
+          name: 'Pomodoro Timer',
+          techs: 'Javascript / Bootstrap / HTML',
+          link: 'https://pomodoro-timer.nagisando.com/',
+          img: 'pomodoroTimer',
+        },
+        {
+          name: 'Sushi Restaurant',
+          techs: 'css / Javascript / HTML',
+          link: 'https://sushi-restaurant.nagisando.com/',
+          img: 'restaurant',
         },
       ],
-    };
+    }
   },
   methods: {
     startLocation: function() {
       if (window.innerWidth >= 768) {
-        const width = window.innerWidth - window.innerWidth * 0.1;
-        return { transform: `translate(${width}px)` };
+        const width = window.innerWidth - window.innerWidth * 0.1
+        return {transform: `translate(${width}px)`}
       }
-      return { top: "30%" };
+      return {top: '30%'}
     },
 
     handleScroll: function() {
       if (window.innerWidth >= 768) {
-        this.notScrolledYet = false;
-        let item = document.querySelector(".outer-wrapper");
-        let value =
-          window.innerWidth - window.innerWidth * 0.1 - window.scrollY;
-        item.style.transform = `translate(${value}px)`;
+        this.notScrolledYet = false
+        let item = document.querySelector('.outer-wrapper')
+        let value = window.innerWidth - window.innerWidth * 0.1 - window.scrollY
+        item.style.transform = `translate(${value}px)`
       }
-      return;
+      return
     },
 
     opacityChange: function() {
-      let sliders = document.querySelectorAll(".slider");
-      let vm = this;
-      let i = 0;
-      sliders.forEach((slide) => {
-        let slider = slide.getBoundingClientRect();
-        let sliderTop = Math.floor(slider.top);
-        let sliderBottom = Math.floor(slider.bottom);
-        let centerPoint = Math.floor(window.innerHeight / 2);
-        let sliderHeight = slider.height;
+      let sliders = document.querySelectorAll('.slider')
+      let vm = this
+      // let i = 0;
+      sliders.forEach((slide, i) => {
+        let slider = slide.getBoundingClientRect()
+        let sliderTop = Math.floor(slider.top)
+        let sliderBottom = Math.floor(slider.bottom)
+        let centerPoint = Math.floor(window.innerHeight / 2)
+        let sliderHeight = slider.height
 
-        if (
-          sliderTop >= centerPoint - sliderHeight &&
-          sliderBottom <= centerPoint + sliderHeight
-        ) {
-          vm.fadeControl[i].fadeinAnime = true;
-          vm.fadeControl[i].fadeoutAnime = false;
-          vm.checkInfo[i] = 1;
+        if (sliderTop >= centerPoint - sliderHeight && sliderBottom <= centerPoint + sliderHeight) {
+          vm.fadeControl[i].fadeinAnime = true
+          vm.fadeControl[i].fadeoutAnime = false
+          vm.checkInfo[i] = 1
         } else {
-          vm.fadeControl[i].fadeoutAnime = true;
-          vm.fadeControl[i].fadeinAnime = false;
-          vm.checkInfo[i] = 0;
+          vm.fadeControl[i].fadeoutAnime = true
+          vm.fadeControl[i].fadeinAnime = false
+          vm.checkInfo[i] = 0
         }
-        i++;
-      });
+        i++
+      })
     },
   },
 
-  created: function() {
-    window.addEventListener("scroll", this.opacityChange);
+  mounted: function() {
+    window.addEventListener('scroll', this.opacityChange)
   },
   destroyed: function() {
-    window.removeEventListener("scroll", this.opacityChange);
+    window.removeEventListener('scroll', this.opacityChange)
   },
-};
+}
 </script>
 
 <style scoped>
 /* For mobile phones: */
 .sm-outer-wrapper {
-  transform: translateY(50vh);
+  transform: translateY(90vh);
   width: 100%;
 }
 .slide-sm {
   position: relative;
   width: 100%;
-  height: 50vh;
+  height: 90vh;
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -199,7 +218,7 @@ export default {
   padding-right: 2vw;
   box-sizing: border-box;
   position: absolute;
-
+  transform: translateY(-10%);
   color: #eff6e0;
 
   text-align: right;
