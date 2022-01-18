@@ -1,5 +1,5 @@
 <template>
-  <div id="app" :style="{height: '100%'}">
+  <div id="app" class="">
     <transition name="fade">
       <div class="firstPage" v-show="scrollnotStartYet" @click="scrollnotStartYet = false">
         <About :activate="scrollnotStartYet"></About>
@@ -8,7 +8,7 @@
 
     <transition name="fade">
       <div v-show="!scrollnotStartYet" class="home_page">
-        <WorkProject />
+        <ProjectList />
         <Navbar />
       </div>
     </transition>
@@ -17,14 +17,14 @@
 
 <script>
 import Navbar from './components/Navbar.vue'
-import WorkProject from './components/project/Project.vue'
 import About from './components/About.vue'
+import ProjectList from './components/ProjectList.vue'
 
 export default {
   name: 'App',
   components: {
     Navbar,
-    WorkProject,
+    ProjectList,
     About,
   },
   data() {
@@ -63,13 +63,12 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   line-height: 1.4;
   background-color: #19323c;
-  overflow: hidden;
   color: #eff6e0;
 }
 
 body,
 html {
-  height: 260%;
+  min-height: 105%;
   overflow-y: scroll;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
@@ -77,7 +76,7 @@ html {
 @media only screen and (min-width: 768px) {
   body,
   html {
-    height: 230%;
+    min-height: 105%;
     /* overflow-y: scroll; */
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;

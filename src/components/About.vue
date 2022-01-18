@@ -1,13 +1,12 @@
 <template>
-  <div class="about">
+  <div class="about relative">
     <transition name="fade">
       <div v-if="activate" class="circle"></div>
     </transition>
     <div class="intro">
-      <h1>
+      <h1 class="text-3xl">
         I am Nagisa Ando.
         <br />
-        A Japanese
         <span class="front-end">Front-end developer</span>
         based in Vancouver.
       </h1>
@@ -22,13 +21,16 @@
         CSS FRAMEWORKS - Bootstrap, Bulma, tailwind, Sass
       </p>
     </div>
+    <div class=" absolute bottom-10 left-1/2 transform -translate-x-1/2">
+      <i class="fas fa-angle-double-down fa-2x"></i>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "About",
-  props: ["activate"],
+  name: 'About',
+  props: ['activate'],
   // data (){
   // return {
   //   scrollnotStartYet: true
@@ -37,7 +39,7 @@ export default {
   // created: function(){
 
   // }
-};
+}
 </script>
 <style scoped>
 .about {
@@ -53,7 +55,7 @@ export default {
 }
 
 .skill {
-  transform: translate(0, 60vh);
+  transform: translate(0, 50vh);
   text-align: center;
   /* font-size: ; */
 }
@@ -92,5 +94,35 @@ img {
 .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
   opacity: 0;
   transform: translateY(20px);
+}
+
+i {
+  animation-name: updown;
+  animation-duration: 1s;
+  animation-timing-function: ease-in;
+  animation-iteration-count: infinite;
+
+  -webkit-animation-name: updown;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-timing-function: ease-in;
+  -webkit-animation-iteration-count: infinite;
+}
+
+@keyframes updown {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(1vh);
+  }
+}
+
+@-webkit-keyframes updown {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(1vh);
+  }
 }
 </style>
