@@ -13,15 +13,22 @@
     </div>
 
     <div class="skill">
-      <p>
-        MAIN SKILLS - JavaScript, HTML5, CSS
+      <p class="leading-8">
+        MAIN SKILLS - JavaScript, HTML5, CSS, Typescript
         <br />
-        FRAMEWORK - VueJs, Nuxt.js
+        FRAMEWORK - <b>VueJs</b>, Nuxt.js, React, React Native, Next.js
         <br />
-        CSS FRAMEWORKS - Bootstrap, Bulma, tailwind, Sass
+        CSS FRAMEWORKS - <b>PrimeVue</b>, <b>BootstrapVue</b>, Bootstrap, Bulma,
+        tailwind, Sass
+        <br />
+        TESTING - <b>Jest</b>, <b>Vitest</b>, <b>Testing Library</b>, Puppeteer,
+        Playwright
+        <br />
+        <b>Storybook</b>, <b>Pinia</b>, Vuex, Vite, Vue CLI, Storyblok,
+        Voiceover and more!
       </p>
     </div>
-    <div class=" absolute bottom-10 left-1/2 transform -translate-x-1/2">
+    <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2">
       <i class="fas fa-angle-double-down fa-2x"></i>
     </div>
   </div>
@@ -29,8 +36,8 @@
 
 <script>
 export default {
-  name: 'About',
-  props: ['activate'],
+  name: "About",
+  props: ["activate"],
   // data (){
   // return {
   //   scrollnotStartYet: true
@@ -39,7 +46,7 @@ export default {
   // created: function(){
 
   // }
-}
+};
 </script>
 <style scoped>
 .about {
