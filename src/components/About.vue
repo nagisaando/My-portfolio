@@ -8,7 +8,6 @@
         I am Nagisa Ando.
         <br />
         <span class="front-end">Front-end developer</span>
-        based in Vancouver.
       </h1>
     </div>
 
@@ -55,6 +54,7 @@ export default {
   width: 100%;
   /* z-index: 1; */
 }
+
 .intro {
   transform: translate(0, 30vh);
   font-size: 1rem;
@@ -98,7 +98,12 @@ img {
 .fade-leave-active {
   transition: all 1s;
 }
-.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+
+.fade-enter,
+.fade-leave-to
+
+/* .fade-leave-active below version 2.1.8 */
+  {
   opacity: 0;
   transform: translateY(20px);
 }
@@ -119,6 +124,7 @@ i {
   0% {
     transform: translateY(0);
   }
+
   100% {
     transform: translateY(1vh);
   }
@@ -128,6 +134,7 @@ i {
   0% {
     transform: translateY(0);
   }
+
   100% {
     transform: translateY(1vh);
   }
