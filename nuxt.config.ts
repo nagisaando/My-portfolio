@@ -14,12 +14,14 @@ export default defineNuxtConfig({
   },
 
   modules: ["@nuxt/eslint"],
-  eslint: {
-    config: {
-      stylistic: {
-        semi: true,
-        quotes: "double",
-      },
-    },
-  },
+  // for some reason when hitting save button does not auto format on vscode with the recommended recipe with stylistic
+  // so we need to put the rule 
+  // eslint: {
+  //   config: {
+  //     stylistic: {
+  //       // semi: true,
+  //       // quotes: "double",
+  //     },
+  //   },
+  // },
 });

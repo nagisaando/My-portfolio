@@ -17,6 +17,7 @@
     "vue-router": "latest"
   },
   "devDependencies": {
+    "@stylistic/eslint-plugin-ts": "^2.9.0",
     "autoprefixer": "^10.4.20",
     "postcss": "^8.4.47",
     "tailwindcss": "^3.4.13",
