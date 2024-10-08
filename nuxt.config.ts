@@ -13,7 +13,10 @@ export default defineNuxtConfig({
     },
   },
 
-  modules: ["@nuxt/eslint"],
+  modules: ["@nuxt/eslint", "@nuxt/fonts"],
+  fonts: {
+   provider: "google"
+}
   // for some reason when hitting save button does not auto format on vscode with the recommended recipe with stylistic
   // so we need to put the rule 
   // eslint: {
