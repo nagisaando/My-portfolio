@@ -9,6 +9,7 @@ export default withNuxt(
       '@stylistic/ts': stylisticTs
     },
     rules: {
+      "vue/no-multiple-template-root": "off",
       '@stylistic/ts/quotes': ["error", "double"],
       '@stylistic/ts/semi': ['error']
     }

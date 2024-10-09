@@ -1,9 +1,10 @@
 <template>
-    <div class="bg-dark-blue text-white min-h-full">
-        <!-- <AppHeader /> -->
 
+
+
+    <div class="text-white min-h-full max-w-screen-2xl mx-auto">
         <AppHeader />
-        <main class="mx-10">
+        <main class="px-10  overflow-hidden">
             <slot />
         </main>
         <!-- <AppFooter /> -->

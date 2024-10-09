@@ -1,5 +1,4 @@
 /** @type {import('tailwindcss').Config} */
-const defaultTheme = require('tailwindcss/defaultTheme')
 export default {
   content: [
     "./components/**/*.{js,vue,ts}",
@@ -15,7 +14,8 @@ export default {
         'sans': ["Nunito Sans"],
       },
       colors: {
-        "dark-blue": "#19323c"
+        "dark-blue": "#19323c",
+        "white": "#eff6e0"
       }
     },
   },
