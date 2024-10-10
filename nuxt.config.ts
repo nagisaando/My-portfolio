@@ -13,7 +13,7 @@ export default defineNuxtConfig({
     },
   },
 
-  modules: ["@nuxt/eslint", "@nuxt/fonts"],
+  modules: ["@nuxt/eslint", "@nuxt/fonts", "@nuxt/image"],
   fonts: {
    provider: "google"
 }

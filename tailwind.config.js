@@ -15,7 +15,8 @@ export default {
       },
       colors: {
         "dark-blue": "#19323c",
-        "white": "#eff6e0"
+        "white": "#eff6e0",
+        "red": "#f03a47"
       }
     },
   },

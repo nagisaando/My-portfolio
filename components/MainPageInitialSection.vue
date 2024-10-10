@@ -6,7 +6,7 @@
         <h1 class="text-8xl pb-5">Nagisa Ando</h1>
         <p class="text-3xl">Frontend Developer</p>
 
-        <div class="w-80 h-80 bg-[#f03a47] rounded-full absolute bottom-20 left-24 -z-10 red-ball-animation" />
+        <div class="w-80 h-80 bg-red rounded-full absolute bottom-20 left-24 -z-10 red-ball-animation" />
 
     </div>
 </template>
