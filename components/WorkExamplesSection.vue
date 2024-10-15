@@ -39,9 +39,9 @@ const projects = [
 
     <ul class="grid md:grid-cols-2 lg:grid-cols-3 gap-14">
         <li v-for="project, i in projects" :key="i">
-            <NuxtLink :to="project.link">
-                <div class=" transition duration-200 hover:text-red">
-                    <img :src="project.img" aria-hidden="true">
+            <NuxtLink :to="project.link" class="transition duration-200 hover:text-red">
+                <div>
+                    <img :src="project.img" :aria-label="`portfolio image of ${project.name}`">
                     <h3 class="text-3xl mt-5 mb-2 underline">{{ project.name }}
                     </h3>
                 </div>

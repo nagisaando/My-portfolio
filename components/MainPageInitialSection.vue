@@ -3,10 +3,11 @@
 
 <template>
     <div class="h-[96vh] flex flex-col relative justify-end pb-10 z-10">
-        <h1 class="text-8xl pb-5">Nagisa Ando</h1>
-        <p class="text-3xl">Frontend Developer</p>
+        <h1 class="text-6xl md:text-8xl pb-5">Nagisa Ando</h1>
+        <p class="text-2xl md:text-3xl mb-5">Frontend Developer</p>
 
-        <div class="w-80 h-80 bg-red rounded-full absolute bottom-20 left-24 -z-10 red-ball-animation" />
+        <MainSkill />
+        <div class="w-80 h-80 bg-red rounded-full absolute bottom-60 left-24 -z-10 red-ball-animation" />
 
     </div>
 </template>
